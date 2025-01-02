@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update User</title>
+    <link rel="stylesheet" href="/update.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Update User Details</h2>
+        <form action="/update_user/<%= user._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <!-- Add any necessary fields here to update user data -->
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="<%= user.name %>" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<%= user.email %>" required>
+            
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" value="<%= user.age %>" required>
+            
+            <label for="image">Upload New Image:</label>
+            <input type="file" id="image" name="image">
+            
+            <button type="submit" class="up-btn">Update</button>
+            <br>
+            <br>
+            <a href="/show/<%= user._id  %>">Back to User</a>
+        </form>
+    </div>
+</body>
+</html>

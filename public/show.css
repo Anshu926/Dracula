@@ -1,0 +1,187 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.user-details-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.user-image img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-info {
+    margin-top: 20px;
+}
+
+.user-info p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555;
+}
+
+strong {
+    color: #333;
+}
+
+.action-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-back {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://t3.ftcdn.net/jpg/06/76/11/34/360_F_676113431_1rqsM7P24VBWGZiFVyLjJOxyQtCgEqKk.jpg');
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-attachment: fixed; /* Keep the background fixed when scrolling */
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.user-details-card {
+    background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.user-image img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+.user-image img:hover {
+    transform: scale(1.1);
+}
+
+.user-info {
+    margin-top: 20px;
+}
+
+.user-info p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #555;
+}
+
+strong {
+    color: #333;
+}
+
+.action-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.btn-back {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+}
+
+.up-btn, .del-btn {
+    padding: 0.5rem 0.8rem; /* Unified padding */
+    border: none;
+    border-radius: 2rem;
+    font-size: 0.9rem; /* Slightly smaller font for better fit */
+    cursor: pointer; /* Pointer on hover */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Update Button */
+.up-btn {
+    background-color: #e6f0f9; /* Soft blue background */
+    color: #0056b3; /* Professional blue text */
+    border: 1px solid #b3d8f3; /* Subtle border */
+}
+
+.up-btn:hover {
+    background-color: #cce4f7; /* Darker blue on hover */
+    color: #004085;
+    border-color: #99c2e6;
+}
+
+/* Delete Button */
+.del-btn {
+    background-color: #f9e6e6; /* Soft red background */
+    color: #b30000; /* Professional red text */
+    border: 1px solid #f3b3b3; /* Subtle border */
+}
+
+.del-btn:hover {
+    background-color: #f7cccc; /* Darker red on hover */
+    color: #800000;
+    border-color: #e69999;
+}
+.btns{
+    display: flex;
+}

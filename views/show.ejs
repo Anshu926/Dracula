@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <link rel="stylesheet" href="/show.css"> <!-- Assuming you have a 'show.css' file -->
+     <!-- Optional Flash Message CSS -->
+     <style>
+        .flash-message {
+            padding: 10px;
+            margin: 10px auto;
+            width: 80%;
+            text-align: center;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .flash-message.success {
+            background-color: #4CAF50;
+        }
+        .flash-message.error {
+            background-color: #f44336;
+        }
+        /* Flash message styles */
+.flash-message {
+    padding: 10px;
+    margin: 10px auto;
+    width: 80%;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: #fff;
+    opacity: 1;
+    transition: opacity 1s ease-out;  /* Smooth fade-out effect */
+}
+
+/* Success message background */
+.flash-message.success {
+    background-color: #4CAF50;
+}
+
+/* Error message background */
+.flash-message.error {
+    background-color: #f44336;
+}
+
+/* Flash message disappearing after 5 seconds */
+.flash-message {
+    animation: fadeOut 3s forwards; /* Fades out after 5 seconds */
+}
+
+/* Keyframe animation for fading out */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+    </style>
+</head>
+<body>
+      <!-- Flash Messages -->
+      <% if (successMessage) { %>
+        <div class="flash-message success">
+            <%= successMessage %>
+        </div>
+    <% } %>
+    <% if (errorMessage) { %>
+        <div class="flash-message error">
+            <%= errorMessage %>
+        </div>
+    <% } %>
+    <div class="container">
+        <div class="user-details-card">
+            <h2>User Details</h2>
+
+            <!-- Check if the user has an image, if not, use a default image -->
+            <div class="user-image">
+                <% if (user.image) { %>
+                    <img src="<%= user.image %>" alt="User Image">
+                <% } else { %>
+                    <img src="https://t4.ftcdn.net/jpg/06/78/09/75/360_F_678097580_mgcsNEISedI7fngOwIipYtEU0T6SN8qKv.jpg" alt="Default Image">
+                <% } %>
+            </div>
+
+            <!-- Display user details -->
+            <div class="user-info">
+                <p><strong>Name:</strong> <%= user.name %></p>
+                <p><strong>Email:</strong> <%= user.email %></p>
+                <% if (user.age) { %>
+                    <p><strong>Age:</strong> <%= user.age %></p>
+                <% } %>
+                <p><strong>Created At:</strong> <%= user.createdAt.toDateString() %></p> <!-- Display the creation date -->
+            </div>
+            <br>
+            <div class="btns">
+                <form action="/update_user/<%= user._id %>" method="GET">
+                    <button class="up-btn" type="submit">Update</button>
+                </form>                
+                <form action="/delete_user/<%= user._id %>?_method=DELETE" method="POST">
+                    <button type="submit" class="del-btn">Delete</button>
+                </form>
+
+            </div>
+            <div class="action-button">
+                <a href="/home" class="btn-back">Back to Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

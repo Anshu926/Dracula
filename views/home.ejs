@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feast - Web Feast</title>
+    <link rel="stylesheet" href="/home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <!-- Optional Flash Message CSS -->
+       <style>
+        .flash-message {
+            padding: 10px;
+            margin: 10px auto;
+            width: 80%;
+            text-align: center;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            color: #fff;
+        }
+        .flash-message.success {
+            background-color: #4CAF50;
+        }
+        .flash-message.error {
+            background-color: #f44336;
+        }
+        /* Flash message styles */
+.flash-message {
+    padding: 10px;
+    margin: 10px auto;
+    width: 80%;
+    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    color: #fff;
+    opacity: 1;
+    transition: opacity 1s ease-out;  /* Smooth fade-out effect */
+}
+
+/* Success message background */
+.flash-message.success {
+    background-color: #4CAF50;
+}
+
+/* Error message background */
+.flash-message.error {
+    background-color: #f44336;
+}
+
+/* Flash message disappearing after 5 seconds */
+.flash-message {
+    animation: fadeOut 3s forwards; /* Fades out after 5 seconds */
+}
+
+/* Keyframe animation for fading out */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Flash Messages -->
+    <% if (successMessage) { %>
+        <div class="flash-message success">
+            <%= successMessage %>
+        </div>
+    <% } %>
+    <% if (errorMessage) { %>
+        <div class="flash-message error">
+            <%= errorMessage %>
+        </div>
+    <% } %>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <h1>Welcome to Alumni Hub &nbsp;!!!</h1>
+            <p>Your community of lifelong connections</p>
+        </div>
+        <div class="nav-links">
+            <a href="/home">Home</a>
+            <a href="/about">About</a>
+        </div>
+        <form  action="/create_user" method="get" class="create_form">
+            <button class="create_btn" type="submit">Add New User</button>
+        </form >
+    </header>
+
+    <!-- Users List -->
+    <div class="container">
+        <% users.forEach(user => { %>
+            <div class="card">
+                <% if (user.image) { %>
+                    <img src="<%= user.image %>" alt="User Image" class="user-image">
+                <% } else { %>
+                    <img src="https://t4.ftcdn.net/jpg/06/78/09/75/360_F_678097580_mgcsNEISedI7fngOwIipYtEU0T6SN8qKv.jpg" alt="Default Image" class="user-image">
+                <% } %>
+                <div class="card-body">
+                    <div class="capsule">
+                        <h3><%= user.name %></h3>
+                        <form action="/show/<%= user._id %>" method="get">
+                            <button class="view_btn">View</button>
+                        </form>
+                    </div>
+                    <p>Email: <%= user.email %></p>
+                    <p>Age: <%= user.age %></p>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Alumni Hub | Connecting People | All Rights Reserved</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon">Facebook</a>
+                <a href="#" class="social-icon">Twitter</a>
+                <a href="#" class="social-icon">Instagram</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
